@@ -59,13 +59,14 @@ public class Deck {
             if(e==false){
                 continue;
             } else {
-                System.out.println("Warnung: Karte schon vorhanden");
+            
+                System.out.println("Warnung: Karte schon vorhanden ("+ card.getSuit() +" "+ card.getRank()+")");
                 break;
             }
         }
         if(e==false){
         this.cards = Arrays.copyOf(cards, cards.length + 1);
-        cards[length+1]= card;
+        cards[length-1]= card;
         }
         return cards;
     }
@@ -86,4 +87,12 @@ public class Deck {
         }
     return cards;
     }
+
+    
+    @Override
+    public String toString() {
+        return "Deck [cards=" + Arrays.toString(cards) + "]";
+    }
+
+    
 }

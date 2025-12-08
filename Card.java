@@ -18,16 +18,24 @@ public class Card {
         this.rank=rank;
     }
 
+    //Getter
+    public Suit getSuit(){
+        return suit;
+    }
+
+    public Rank getRank(){
+        return rank;
+    }
+
     // toString
-    public String toString(Card a) {
-        return(suit + "; " + rank);
+    @Override
+    public String toString() {
+        return(suit + " " + rank);
     }
 
     public boolean equals(Card b) {
         boolean e=false;
         if(this.suit == b.suit) {
-            e=true;
-        } else {
             if (this.rank == b.rank){
                 e=true;
             }
