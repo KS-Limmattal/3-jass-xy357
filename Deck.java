@@ -26,5 +26,61 @@ import java.util.Arrays;
  *
  */
 public class Deck {
-    
+    //Instanzvariable cards (Array Typ Card)
+    Card[] cards;
+
+    //Konstruktor
+    public Deck(Card[] cards){
+         this.cards=cards;
+    }
+
+    public Deck(){
+        this.cards = new Card[36];
+        int count = 0;
+        for(Suit suit: Suit.values()){
+            for(Rank rank: Rank.values()){
+                this.cards[count] = new Card(suit,rank);
+                count++;
+            }
+        }
+    }
+
+    //Getter
+    public Card[] getCards(){
+        return cards;
+    }
+
+    //
+    public Card[] addCard(Card card){
+        int length = cards.length;
+        boolean e = false;
+        for(int i=0; i<length; i++){
+            e=card.equals(cards[i]);
+            if(e==false){
+                continue;
+            } else {
+                System.out.println("Warnung: Karte schon vorhanden");
+                break;
+            }
+        }
+        if(e==false){
+        this.cards = Arrays.copyOf(cards, cards.length + 1);
+        cards[length+1]= card;
+        }
+        return cards;
+    }
+
+    public Card[] pop(){
+        this.cards=Arrays.copyOf(cards,cards.length-1);
+        return cards;
+    }
+
+    public Card[] shuffle(){
+        int length = cards.length;
+        for(int i=0; i<length; i++){
+            Random rnd = new Random();
+            int r = rnd.nextInt(length-1);
+
+        }
+    }
 }

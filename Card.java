@@ -13,7 +13,7 @@ public class Card {
     private Rank rank;
 
     // Konstruktor
-    public Card(suit, rank) {
+    public Card(Suit suit, Rank rank) {
         this.suit=suit;
         this.rank=rank;
     }
@@ -24,9 +24,14 @@ public class Card {
     }
 
     public boolean equals(Card b) {
-        boolean b=false;
-        if(this.suit = suit) {
-            
+        boolean e=false;
+        if(this.suit == b.suit) {
+            e=true;
+        } else {
+            if (this.rank == b.rank){
+                e=true;
+            }
         }
+        return e;
     }
 }
