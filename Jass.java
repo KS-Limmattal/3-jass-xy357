@@ -8,16 +8,16 @@
 import java.util.Arrays;
 public class Jass {
     public static void main(String[] args) {
-        Deck testdeck = new Deck();
-        testdeck.shuffle();
-        int i = 1;
-        while(i!=30){
-            testdeck.pop();
-            i++;
-        }
-        Card testeichelass = new Card(Suit.EICHELN, Rank.ASS);
-        testdeck.addCard(testeichelass);
-        System.out.println(Arrays.toString(testdeck.getCards()));
+        // Deck testdeck = new Deck();
+        // testdeck.shuffle();
+        // int i = 1;
+        // while(i<31){
+        //     testdeck.pop();
+        //     i++;
+        // }
+        // Card testeichelass = new Card(Suit.EICHELN, Rank.ASS);
+        // testdeck.addCard(testeichelass);
+        // System.out.println(Arrays.toString(testdeck.getCards()));
 
     }
 }

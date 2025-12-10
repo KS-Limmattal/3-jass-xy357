@@ -28,6 +28,7 @@ import java.util.Arrays;
 public class Deck {
     //Instanzvariable cards (Array Typ Card)
     Card[] cards;
+    Suit trumpf;
 
     //Konstruktor
     public Deck(Card[] cards){
@@ -66,14 +67,15 @@ public class Deck {
         }
         if(e==false){
         this.cards = Arrays.copyOf(cards, cards.length + 1);
-        cards[length-1]= card;
+        cards[length]= card;
         }
         return cards;
     }
 
-    public Card[] pop(){
+    public Card pop(){
+        Card card = cards[cards.length-1];
         this.cards=Arrays.copyOf(cards,cards.length-1);
-        return cards;
+        return card;
     }
 
     public Card[] shuffle(){
@@ -94,5 +96,7 @@ public class Deck {
         return "Deck [cards=" + Arrays.toString(cards) + "]";
     }
 
-    
+    public Card[] validCards(Deck played){
+        if ()
+    }
 }
