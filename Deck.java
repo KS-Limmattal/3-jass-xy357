@@ -96,7 +96,16 @@ public class Deck {
         return "Deck [cards=" + Arrays.toString(cards) + "]";
     }
 
-    public Card[] validCards(Deck played){
-        if ()
+    public Card[] validCards(Deck playedCards) {
+        if (playedCards.cards.length == 0){
+            return cards;
+        } else {
+            int längespieler =cards.length;
+            Suit farbe=playedCards.cards[0].getSuit();
+            for(int i = 0; i<längespieler;i++){
+                if(cards.suit==farbe){
+                    
+                }
+        }
     }
 }
