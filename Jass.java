@@ -19,5 +19,23 @@ public class Jass {
         // testdeck.addCard(testeichelass);
         // System.out.println(Arrays.toString(testdeck.getCards()));
 
+
+        // Generiere in der Klasse `Jass` einen gültigen Schieber-Jass zwischen 4 Computerspielern, welche jeweils gültige Karten ausspielen:
+        Deck deck = new Deck();
+        deck.shuffle();
+        Deck player1 = new Deck(new Card[0]);
+        Deck player2 = new Deck(new Card[0]);
+        Deck player3 = new Deck(new Card[0]);
+        Deck player4 = new Deck(new Card[0]);
+        for(int i=0; i<9; i++){
+            player1.addCard(deck.pop());
+            player2.addCard(deck.pop());
+            player3.addCard(deck.pop());
+            player4.addCard(deck.pop());
+        }
+        System.out.println("player1"+player1.toString());
+        System.out.println("player2"+player2.toString());
+        System.out.println("player3"+player3.toString());
+        System.out.println("player4"+player4.toString());
     }
 }

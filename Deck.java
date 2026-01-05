@@ -97,15 +97,25 @@ public class Deck {
     }
 
     public Card[] validCards(Deck playedCards) {
+        Card[] validCards = new Card[0];
         if (playedCards.cards.length == 0){
-            return cards;
+            validCards = cards;
+            return validCards;
         } else {
             int längespieler =cards.length;
             Suit farbe=playedCards.cards[0].getSuit();
+            validCards = new Card[0];
             for(int i = 0; i<längespieler;i++){
-                if(cards.suit==farbe){
-                    
+                if(cards[i].getSuit()==farbe || cards[i].getSuit()==trumpf){
+                validCards = Arrays.copyOf(validCards, validCards.length + 1);
+                validCards[i]=cards[i];
                 }
+            }
         }
-    }
+        if (validCards.length==0){
+            validCards = cards;
+        }
+        
+    return validCards;
+    }    
 }
