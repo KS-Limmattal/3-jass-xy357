@@ -37,5 +37,37 @@ public class Jass {
         System.out.println("player2"+player2.toString());
         System.out.println("player3"+player3.toString());
         System.out.println("player4"+player4.toString());
+
+        for(int i=0; i<9; i++){
+            Deck playedDeck= new Deck(new Card[0]);
+            Card[] validCards1 = player1.validCards(playedDeck);
+            Card card1=validCards1[0];
+            player1.kartespielen(card1);
+            Card cardspielen1=player1.pop();
+            playedDeck.addCard(cardspielen1);
+
+            Card[] validCards2 = player2.validCards(playedDeck);
+            Card card2=validCards2[0];
+            player2.kartespielen(card2);
+            Card cardspielen2=player2.pop();
+            playedDeck.addCard(cardspielen2);
+            
+            Card[] validCards3 = player3.validCards(playedDeck);
+            Card card3=validCards3[0];
+            player3.kartespielen(card3);
+            Card cardspielen3=player3.pop();
+            playedDeck.addCard(cardspielen3);
+            
+            Card[] validCards4 = player4.validCards(playedDeck);
+            Card card4=validCards4[0];
+            player4.kartespielen(card4);
+            Card cardspielen4=player4.pop();
+            playedDeck.addCard(cardspielen4);
+            
+            System.out.println("player1"+player1.toString());
+            System.out.println("player2"+player2.toString());
+            System.out.println("player3"+player3.toString());
+            System.out.println("player4"+player4.toString());
+        }
     }
 }

@@ -117,5 +117,21 @@ public class Deck {
         }
         
     return validCards;
-    }    
+    }
+  
+    public Card kartespielen(Card card){
+        int l= cards.length;
+        int i;
+        for(i=0; i<l; i++){
+            boolean w = card.equals(cards[i]);
+            if (w==true){
+                break;
+            }
+        }
+        Card cardspielen= cards[i];
+        Card cardspeicher=cards[l-1];
+        cards[l-1]=cardspielen;
+        cards[i]=cardspeicher;
+        return cards[i];
+    }
 }
