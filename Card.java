@@ -7,5 +7,39 @@
  * andere Karte hat.
  */
 public class Card {
-    
+
+    //Instanzvariablen
+    private Suit suit;
+    private Rank rank;
+
+    // Konstruktor
+    public Card(Suit suit, Rank rank) {
+        this.suit=suit;
+        this.rank=rank;
+    }
+
+    //Getter
+    public Suit getSuit(){
+        return suit;
+    }
+
+    public Rank getRank(){
+        return rank;
+    }
+
+    // toString
+    @Override
+    public String toString() {
+        return(suit + " " + rank);
+    }
+
+    public boolean equals(Card b) {
+        boolean e=false;
+        if(this.suit == b.suit) {
+            if (this.rank == b.rank){
+                e=true;
+            }
+        }
+        return e;
+    }
 }
