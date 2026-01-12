@@ -26,71 +26,70 @@ import java.util.Arrays;
  *
  */
 public class Deck {
-    //Instanzvariable cards (Array Typ Card)
+    // Instanzvariable cards (Array Typ Card)
     Card[] cards;
     Suit trumpf;
 
-    //Konstruktor
-    public Deck(Card[] cards){
-         this.cards=cards;
+    // Konstruktor
+    public Deck(Card[] cards) {
+        this.cards = cards;
     }
 
-    public Deck(){
+    public Deck() {
         this.cards = new Card[36];
         int count = 0;
-        for(Suit suit: Suit.values()){
-            for(Rank rank: Rank.values()){
-                this.cards[count] = new Card(suit,rank);
+        for (Suit suit : Suit.values()) {
+            for (Rank rank : Rank.values()) {
+                this.cards[count] = new Card(suit, rank);
                 count++;
             }
         }
     }
 
-    //Getter
-    public Card[] getCards(){
+    // Getter
+    public Card[] getCards() {
         return cards;
     }
 
     //
-    public Card[] addCard(Card card){
+    public Card[] addCard(Card card) {
         int length = cards.length;
         boolean e = false;
-        for(int i=0; i<length; i++){
-            e=card.equals(cards[i]);
-            if(e==false){
+        for (int i = 0; i < length; i++) {
+            e = card.equals(cards[i]);
+            if (e == false) {
                 continue;
             } else {
-            
-                System.out.println("Warnung: Karte schon vorhanden ("+ card.getSuit() +" "+ card.getRank()+")");
+
+                System.out.println("Warnung: Karte schon vorhanden (" + card.getSuit() + " " + card.getRank() + ")");
                 break;
             }
         }
-        if(e==false){
-        this.cards = Arrays.copyOf(cards, cards.length + 1);
-        cards[length]= card;
+        if (e == false) {
+            this.cards = Arrays.copyOf(cards, cards.length + 1);
+            cards[length] = card;
         }
         return cards;
     }
 
-    public Card pop(){
-        Card card = cards[cards.length-1];
-        this.cards=Arrays.copyOf(cards,cards.length-1);
+    public Card pop() {
+        Card card = cards[cards.length - 1];
+        this.cards = Arrays.copyOf(cards, cards.length - 1);
         return card;
     }
 
-    public Card[] shuffle(){
+    public Card[] shuffle() {
         int length = cards.length;
-        for(int i=0; i<length; i++){
+        for (int i = 0; i < length; i++) {
             Random rnd = new Random();
-            int r = rnd.nextInt(length-1);
+            int r = rnd.nextInt(length - 1);
             Card a = cards[r];
             cards[r] = cards[i];
             cards[i] = a;
         }
-    return cards;
+        return cards;
     }
 
-    
     @Override
     public String toString() {
         return "Deck [cards=" + Arrays.toString(cards) + "]";
@@ -98,40 +97,40 @@ public class Deck {
 
     public Card[] validCards(Deck playedCards) {
         Card[] validCards = new Card[0];
-        if (playedCards.cards.length == 0){
+        if (playedCards.cards.length == 0) {
             validCards = cards;
             return validCards;
         } else {
-            int längespieler =cards.length;
-            Suit farbe=playedCards.cards[0].getSuit();
+            int längespieler = cards.length;
+            Suit farbe = playedCards.cards[0].getSuit();
             validCards = new Card[0];
-            for(int i = 0; i<längespieler;i++){
-                if(cards[i].getSuit()==farbe || cards[i].getSuit()==trumpf){
-                validCards = Arrays.copyOf(validCards, validCards.length + 1);
-                validCards[i]=cards[i];
+            for (int i = 0; i < längespieler; i++) {
+                if (cards[i].getSuit() == farbe || cards[i].getSuit() == trumpf) {
+                    validCards = Arrays.copyOf(validCards, validCards.length + 1);
+                    validCards[validCards.length - 1] = cards[i];
                 }
             }
         }
-        if (validCards.length==0){
+        if (validCards.length == 0) {
             validCards = cards;
         }
-        
-    return validCards;
+
+        return validCards;
     }
-  
-    public Card kartespielen(Card card){
-        int l= cards.length;
+
+    public Card kartespielen(Card card) {
+        int l = cards.length;
         int i;
-        for(i=0; i<l; i++){
+        for (i = 0; i < l; i++) {
             boolean w = card.equals(cards[i]);
-            if (w==true){
+            if (w == true) {
                 break;
             }
         }
-        Card cardspielen= cards[i];
-        Card cardspeicher=cards[l-1];
-        cards[l-1]=cardspielen;
-        cards[i]=cardspeicher;
+        Card cardspielen = cards[i];
+        Card cardspeicher = cards[l - 1];
+        cards[l - 1] = cardspielen;
+        cards[i] = cardspeicher;
         return cards[i];
     }
 }

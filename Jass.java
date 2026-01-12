@@ -20,6 +20,7 @@ public class Jass {
         // System.out.println(Arrays.toString(testdeck.getCards()));
 
 
+
         // Generiere in der Klasse `Jass` einen gültigen Schieber-Jass zwischen 4 Computerspielern, welche jeweils gültige Karten ausspielen:
         Deck deck = new Deck();
         deck.shuffle();
@@ -40,34 +41,47 @@ public class Jass {
 
         for(int i=0; i<9; i++){
             Deck playedDeck= new Deck(new Card[0]);
+            System.out.println("Hand player1: "+player1.toString());
+            System.out.println("playedCards: "+playedDeck.toString());
             Card[] validCards1 = player1.validCards(playedDeck);
+            System.out.println("validCards player1: "+Arrays.toString(validCards1));
             Card card1=validCards1[0];
+            System.out.println("Card played player1: "+card1.toString());
             player1.kartespielen(card1);
             Card cardspielen1=player1.pop();
             playedDeck.addCard(cardspielen1);
 
+            System.out.println("Hand player2: "+player2.toString());
+            System.out.println("playedCards: "+playedDeck.toString());
             Card[] validCards2 = player2.validCards(playedDeck);
+            System.out.println("validCards player2: "+Arrays.toString(validCards2));
             Card card2=validCards2[0];
+            System.out.println("Card played player2: "+card2.toString());
             player2.kartespielen(card2);
             Card cardspielen2=player2.pop();
             playedDeck.addCard(cardspielen2);
             
+            System.out.println("Hand player3: "+player3.toString());
+            System.out.println("playedCards: "+playedDeck.toString());
             Card[] validCards3 = player3.validCards(playedDeck);
+            System.out.println("validCards player3: "+Arrays.toString(validCards3));
             Card card3=validCards3[0];
+            System.out.println("Card played player3: "+card3.toString());
             player3.kartespielen(card3);
             Card cardspielen3=player3.pop();
             playedDeck.addCard(cardspielen3);
             
+            System.out.println("Hand player4: "+player4.toString());
+            System.out.println("playedCards: "+playedDeck.toString());
             Card[] validCards4 = player4.validCards(playedDeck);
+            System.out.println("validCards player4: "+Arrays.toString(validCards4));
             Card card4=validCards4[0];
+            System.out.println("Card played player4: "+card4.toString());
             player4.kartespielen(card4);
             Card cardspielen4=player4.pop();
             playedDeck.addCard(cardspielen4);
             
-            System.out.println("player1"+player1.toString());
-            System.out.println("player2"+player2.toString());
-            System.out.println("player3"+player3.toString());
-            System.out.println("player4"+player4.toString());
+            
         }
     }
 }
